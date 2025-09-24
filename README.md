@@ -1,16 +1,10 @@
-# Makefile to generate README.md
+# Makefile to generate README.md without using macro parameters
 
-README=README.md
-SCRIPT=guessinggame.sh
-TITLE="Guessing Game Project"
-DATETIME=$(shell date '+%Y-%m-%d %H:%M:%S')
-LINES=$(shell wc -l < $(SCRIPT))
+all: README.md
 
-all: $(README)
-
-$(README):
-	echo "# $(TITLE)" > $(README)
-	echo "" >> $(README)
-	echo "Generated on: $(DATETIME)" >> $(README)
-	echo "" >> $(README)
-	echo "Number of lines in $(SCRIPT): $(LINES)" >> $(README)
+README.md:
+	echo "# Guessing Game Project" > README.md
+	echo "" >> README.md
+	echo "Generated on: $$(date '+%Y-%m-%d %H:%M:%S')" >> README.md
+	echo "" >> README.md
+	echo "Number of lines in guessinggame.sh: $$(wc -l < guessinggame.sh)" >> README.md
